@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <body>Open Devtools and Task Manager!</body>
+  <script>
+    (async function() {
+      for (let i = 1; i < 100; i++) {
+        const context = new OfflineAudioContext(1, 44100, 44100);
+        await context.audioWorklet.addModule('libvasynthaw.js');
+        const audioBuffer = await context.startRendering();
+        console.log(i, audioBuffer);
+      }
+    })();
+  </script>
+</html>
